@@ -1,16 +1,25 @@
-  <div class="form-horizontal">
-                <hr />
-                <div class="form-group">
-                    <label for="nome" class="control-label col-md-2">Nome</label>
-                    <div class="col-md-10">
-                        <input class="form-control" type="text" name="nome" id="">
-                    </div>
-                </div>
+        <% const mostrarErro = (campo) => erros?.find(e => e.path === campo)?.msg; %>
+
+<hr />
+
+<div class="form-group">
+    <label for="nome" class="control-label col-md-2">Nome</label>
+    <div class="col-md-10">
+        <input class="form-control <%= mostrarErro('nome') ? 'campo-erro' : '' %>" type="text" name="nome" id="">
+
+        <% if (mostrarErro("nome")) { %>
+            <p class="erro"><%= mostrarErro("nome") %></p>
+        <% } %>
+    </div>
+</div>
 
                 <div class="form-group">
                     <label for="cep" class="control-label col-md-2">CEP</label>
                     <div class="col-md-10">
                         <input class="form-control" type="text" name="cep" id="">
+                        <% if (mostrarErro("cep")) { %>
+    <p class="erro"><%= mostrarErro("cep") %></p>
+<% } %>
                     </div>
                 </div>
 
@@ -26,6 +35,9 @@
                     <label for="nomeUsuario" class="control-label col-md-2">Nome de Usuário</label>
                     <div class="col-md-10">
                         <input class="form-control" type="text" name="nomeUsuario" id="">
+                        <% if (mostrarErro("nomeUsuario")) { %>
+    <p class="erro"><%= mostrarErro("nomeUsuario") %></p>
+<% } %>
                     </div>
                 </div>
 
@@ -33,6 +45,9 @@
                     <label for="email" class="control-label col-md-2">E-mail</label>
                     <div class="col-md-10">
                         <input class="form-control" type="text" name="email" id="">
+                        <% if (mostrarErro("email")) { %>
+    <p class="erro"><%= mostrarErro("email") %></p>
+<% } %>
                     </div>
                 </div>
 
@@ -40,6 +55,9 @@
                     <label for="senha" class="control-label col-md-2">Senha</label>
                     <div class="col-md-10">
                         <input class="form-control" type="password" name="senha" id="">
+                        <% if (mostrarErro("senha")) { %>
+    <p class="erro"><%= mostrarErro("senha") %></p>
+<% } %>
                     </div>
                 </div>
 
